@@ -139,7 +139,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="FillRand.cpp" />
+    <ClCompile Include="FillRandsoverloads.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Print.cpp" />
+    <ClCompile Include="Sort.cpp" />
+    <ClCompile Include="Stat.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="prototype.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
