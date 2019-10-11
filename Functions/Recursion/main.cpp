@@ -27,24 +27,23 @@ double power(double a, int n)
 	*/
 	return n == 0 ? 1 : (n > 0) ? (a*power(a, n - 1)) : 1/a * power(a, n + 1);
 }
-void fibonachi(int n)
+int Fib(int n)
 {
+	//return Fib(n - 1) + Fib(n - 2);
+	if (n < 1) return 0;
+	if (n == 1) return 1;
 	static int a = 0;
-	static int fibonachi = 1;
-	if (n == 1)
-	{
-		cout << "0";
-	break;
-	}
-	if (n == 2) cout << "1";
-	else {
-		fibonachi += a;
-		cout << fibonachi;
-	}
-	a++;
+	static int buff = 1;
+	std::cout << a << "\t";
+	a = a + buff;
+	buff = a - buff;
+	return Fib(n - 1);
 }
+void Fib_2(int n, int a = 0, int b = 1);
+
 //#define FACTORIAL
 //#define POWER
+#define FIB_2
 void main()
 {
 	int n;
@@ -61,7 +60,37 @@ void main()
 	cout << "Введите степень: "; cin >> stepen;
 	cout << n << " ^ " << stepen << " = " << power(n, stepen);
 #endif // POWER
-	cout << "== Ряд Фибоначчи ==" << endl;
-	cout << "Введите число: "; cin >> n;
-	fibonachi(n);
+#ifdef FIB_2
+	std::cout << "До какого числа выводить ряд : "; std::cin >> n;
+	Fib_2(n);
+
+#endif // Fib_2
+	//std::cout << "До какого числа выводить ряд : "; std::cin >> n;
+//	std::cout << endl << Fib(n);
+	/*
+	cout << "Введите количество выводимых чисел : "; cin >> n;
+	for (int i = 0; i < n; i++)
+	{
+		cout << Fib(i) << "\t";
+}
+	cout << endl;
+
+	cout << "Выберете число из уже выведенного ряда: "; cin >> n;
+	for (int i = 0; i < n*n; i++)
+	{
+		cout << Fib(i) << "\t";
+		if (Fib(i) == n) break;
+	}
+	*/
+
+}
+void Fib_2(int n, int a, int b)
+{
+	if (a > n)
+	{
+		cout << endl;
+		return;
+	}
+	std::cout << a << "\t";
+	return Fib_2(n, b, a + b);
 }
