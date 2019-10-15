@@ -94,6 +94,7 @@ void check(char Field[], const int n, char player)
 		cout << "Player _" << player << "_ wins" << endl;
 		return;
 	}
+	Move(Field, n, player);
 }
 /////////////////////
 void main()
@@ -103,6 +104,8 @@ void main()
 	char Field[SIZE] = {}; // Игровое поле 
 	char player = '0';
 	PrintField(Field, SIZE, player);
+	cout << "Еще разочек? (y || Y)";
+	//if (_getch() == "y" || "Y")main();
 
 }
 /////////////////
@@ -124,7 +127,7 @@ void PrintField(char Field[], const int n, char player)
 		if (i != 0) cout << "--- --- ---" << endl;
 	}
  	check(Field, n, player);
-	Move(Field, n, player);
+	
 }
 	/*
 void Move(char Field[], const int n, char Player)
